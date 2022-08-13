@@ -3,8 +3,7 @@ const jwt = require("jsonwebtoken"); //to generate signed token
 const expressJwt = require("express-jwt"); //for authorization check
 const { errorHandler } = require("../helpers/dbErrorHandler");
 
-//Middlewares
-
+//Middlewares rest
 exports.signup = (req, res) => {
   const user = new User(req.body);
   user.save((error, user) => {
