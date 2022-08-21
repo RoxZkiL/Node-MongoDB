@@ -69,7 +69,7 @@ exports.addOrderToUserHistory = (req, res, next) => {
   );
 };
 
-exports.purchaseHistory = (req, res) => {
+exports.purchaseHistory = (_req_, res) => {
   Order.find({ user: res.profile._id })
     .populate("user", "_id name")
     .sort("-created")
