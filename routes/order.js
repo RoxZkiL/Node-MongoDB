@@ -10,7 +10,7 @@ const {
   orderById,
   updateOrderStatus,
 } = require("../controllers/order");
-const { decreaseQuantity } = require("../controllers/product");
+const { decreaseQuantity } = require("../controllers/products");
 
 //Routes
 router.post(
