@@ -30,7 +30,7 @@ exports.signin = (req, res) => {
       });
     }
     //Create authenticate method in user model
-    if (!user.authenthicate(password)) {
+    if (!user.authenticate(password)) {
       return res.status(401).json({
         error: "Email and password dont match",
       });
@@ -38,7 +38,7 @@ exports.signin = (req, res) => {
     //Generate a signed token with user id and secret
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
     //Persist token in coockie with expire date
-    res.cookie("time", token, { expires: new Date() + 9999 });
+    res.cookie("time", token, { expire: new Date() + 9999 });
     //Response with user and token for frontend client
     const { id, name, email, role } = req.body;
     return res.json({ token, user: { id, name, email, role } });
